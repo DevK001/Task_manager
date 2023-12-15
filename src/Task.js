@@ -12,27 +12,48 @@ const Task = ({ task, deleteTask, toggleCompletion, editTask }) => {
   };
 
   return (
-    <div className={`task ${task.completed ? 'completed' : ''}`}>
-      <input
-        type="checkbox"
-        checked={task.completed}
-        onChange={() => toggleCompletion(task.id)}
-      />
-      {isEditing ? (
-        <>
-          <input
-            type="text"
-            value={editedTitle}
-            onChange={(e) => setEditedTitle(e.target.value)}
-          />
-          <button onClick={handleEdit}>Save</button>
-        </>
-      ) : (
-        <>
-          <span onClick={() => setEditing(true)}>{task.title}</span>
-          <button onClick={() => deleteTask(task.id)}>Delete</button>
-        </>
-      )}
+    <div className={`task mb-2 ${task.completed ? 'completed' : ''}`}>
+      <div className="form-check">
+        <input
+          type="checkbox"
+          className="form-check-input"
+          checked={task.completed}
+          onChange={() => toggleCompletion(task.id)}
+        />
+        {isEditing ? (
+          <>
+            <input
+              type="text"
+              className="form-control"
+              value={editedTitle}
+              onChange={(e) => setEditedTitle(e.target.value)}
+            />
+            <button
+              className="btn btn-success btn-sm ms-2"
+              onClick={handleEdit}
+            >
+              Save
+            </button>
+          </>
+        ) : (
+          <>
+            <label className="form-check-label flex-grow-1">
+              <span
+                onClick={() => setEditing(true)}
+                style={{ cursor: 'pointer' }}
+              >
+                {task.title}
+              </span>
+            </label>
+            <button
+              className="btn btn-danger btn-sm"
+              onClick={() => deleteTask(task.id)}
+            >
+              Delete
+            </button>
+          </>
+        )}
+      </div>
     </div>
   );
 };

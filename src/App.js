@@ -2,19 +2,19 @@
 
 import React, { useState, useEffect } from 'react';
 import TaskList from './TaskList';
+import 'bootstrap/dist/css/bootstrap.min.css'; // Import Bootstrap CSS
+import './index.css'; // Import custom styles
 
 const App = () => {
   const [tasks, setTasks] = useState([]);
   const [newTask, setNewTask] = useState('');
 
   useEffect(() => {
-    // Load tasks from local storage on component mount
     const storedTasks = JSON.parse(localStorage.getItem('tasks')) || [];
     setTasks(storedTasks);
   }, []);
 
   useEffect(() => {
-    // Save tasks to local storage whenever the tasks state changes
     localStorage.setItem('tasks', JSON.stringify(tasks));
   }, [tasks]);
 
@@ -46,15 +46,20 @@ const App = () => {
   };
 
   return (
-    <div className="app">
-      <h1>Task Manager</h1>
-      <input
-        type="text"
-        placeholder="Add a new task..."
-        value={newTask}
-        onChange={(e) => setNewTask(e.target.value)}
-      />
-      <button onClick={addTask}>Add Task</button>
+    <div className="container mt-5">
+      <h1 className="text-center mb-4">Task Manager</h1>
+      <div className="mb-3">
+        <input
+          type="text"
+          className="form-control"
+          placeholder="Add a new task..."
+          value={newTask}
+          onChange={(e) => setNewTask(e.target.value)}
+        />
+        <button className="btn btn-primary mt-2" onClick={addTask}>
+          Add Task
+        </button>
+      </div>
       <TaskList
         tasks={tasks}
         deleteTask={deleteTask}
