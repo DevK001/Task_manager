@@ -2,8 +2,8 @@
 
 import React, { useState, useEffect } from 'react';
 import TaskList from './TaskList';
-import 'bootstrap/dist/css/bootstrap.min.css'; // Import Bootstrap CSS
-import './index.css'; // Import custom styles
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './index.css';
 
 const App = () => {
   const [tasks, setTasks] = useState([]);
@@ -56,7 +56,11 @@ const App = () => {
           value={newTask}
           onChange={(e) => setNewTask(e.target.value)}
         />
-        <button className="btn btn-primary mt-2" onClick={addTask}>
+        <button
+          className="btn btn-primary mt-2"
+          onClick={addTask}
+          style={{ animation: 'fadeIn 0.5s' }}
+        >
           Add Task
         </button>
       </div>
