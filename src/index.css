@@ -1,0 +1,69 @@
+/* styles.css */
+
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+  }
+  
+  .app {
+    text-align: center;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  input[type='text'] {
+    padding: 8px;
+    margin-right: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  button {
+    padding: 8px;
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .task-list {
+    margin-top: 20px;
+  }
+  
+  .task {
+    display: flex;
+    align-items: center;
+    margin: 8px 0;
+  }
+  
+  .task.completed {
+    text-decoration: line-through;
+    color: #888;
+  }
+  
+  .task input[type='checkbox'] {
+    margin-right: 8px;
+  }
+  
+  .task input[type='text'] {
+    margin-right: 8px;
+  }
+  
+  .task button {
+    background-color: #f44336;
+    margin-left: auto;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
