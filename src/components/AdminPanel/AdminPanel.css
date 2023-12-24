@@ -1,0 +1,98 @@
+/* Add these styles to your component's CSS file or use a CSS-in-JS solution like styled-components */
+
+/* Style for the outer container */
+
+.relative {
+    position: relative;
+    margin: 20px 0;
+    padding: 20px;
+    padding-top: 50px;
+  }
+  
+  .overflow-x-auto {
+    overflow-x: auto;
+  }
+  
+  .shadow-md {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Style for the heading */
+  .heading {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    margin-left: 40%;
+    color: #2d3748;
+    
+  }
+  
+  /* Style for the table */
+  table {
+    width: 90%;
+    margin-top: 1rem;
+    margin-right: 50%;
+    margin-left: 5%;
+    border-collapse: collapse;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+  }
+  
+  /* Style for the table header */
+  thead {
+    background-color: #4a5568;
+    color: white;
+  }
+  
+  th, td {
+    padding: 1.5rem;
+    text-align: center;
+  }
+  
+  /* Style for table rows */
+  tr {
+    border-bottom: 1px solid #cbd5e0;
+  }
+  
+  /* Style for alternating row background */
+  tr:nth-child(even) {
+    background-color: #edf2f7;
+  }
+  
+  /* Style for actions links and buttons */
+  a, button {
+    cursor: pointer;
+    text-decoration: none;
+    color: #2b6cb0;
+  }
+  
+  a:hover, button:hover {
+    text-decoration: underline;
+  }
+  
+  /* Style for delete button */
+  .text-red-500 {
+    color: #e53e3e;
+  }
+  
+  /* Style for edit button */
+  .text-yellow-400 {
+    color: #ecc94b;
+  }
+  
+  /* Hover effect for buttons */
+  .button-hover:hover {
+    filter: brightness(90%);
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 768px) {
+    h2 {
+      font-size: 1.5rem;
+    }
+  
+    th, td {
+      padding: 1rem;
+    }
+  }
+  

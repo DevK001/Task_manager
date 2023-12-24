@@ -1,0 +1,43 @@
+/* UserProfile.module.css */
+
+.container {
+    /* max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); */
+    margin-left: 40%;
+    margin-top: 15%;
+    width: 400px;
+    background: #fff;
+    border: 1px solid #dddfe2;
+    box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
+    border-radius: 8px;
+    padding: 1rem;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .loading {
+    text-align: center;
+    margin-top: 20px;
+    color: #888;
+  }
+  
+  .heading {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  
+  .userDetails {
+    font-size: 16px;
+    margin-bottom: 8px;
+  }
+  
+  .error {
+    color: red;
+    margin-top: 20px;
+  }
+  

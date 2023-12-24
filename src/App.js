@@ -1,77 +1,46 @@
-// App.js
+// import "./App.css";
+import UserHomepage from "./components/Userhomepage/UserHomepage";
+import UserLogin from "./components/UserLogin/UserLogin";
+import Register from "./components/Register/Register";
+import CoAdminRegister from "./components/CoAdminRegister/CoAdminRegister";
+import CoAdminLogin from "./components/CoAdminLogin/CoAdminLogin";
+import CoAdminHome from "./components/CoAdminHome/CoAdminHome";
+import AdminLogin from "./components/AdminLogin/AdminLogin";
+import AdminRegister from "./components/AdminRegister/AdminRegister";
+import AdminPanel from "./components/AdminPanel/AdminPanel"
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import UpdateUser from "./components/AdminPanel/UpdateUser";
+import NavBar from "./components/NavBar/NavBar";
+import UserProfile from "./components/UserProfile/UserProfile"
+import CoAdminProfile from "./components/Co-Admin-profile/CoAdminProfile";
+import Home from "./components/HomePage/Home"
+// import { useState } from "react";
 
-import React, { useState, useEffect } from 'react';
-import TaskList from './TaskList';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import './index.css';
-
-const App = () => {
-  const [tasks, setTasks] = useState([]);
-  const [newTask, setNewTask] = useState('');
-
-  useEffect(() => {
-    const storedTasks = JSON.parse(localStorage.getItem('tasks')) || [];
-    setTasks(storedTasks);
-  }, []);
-
-  useEffect(() => {
-    localStorage.setItem('tasks', JSON.stringify(tasks));
-  }, [tasks]);
-
-  const addTask = () => {
-    if (newTask.trim() !== '') {
-      setTasks([...tasks, { id: Date.now(), title: newTask, completed: false }]);
-      setNewTask('');
-    }
-  };
-
-  const deleteTask = (taskId) => {
-    setTasks(tasks.filter((task) => task.id !== taskId));
-  };
-
-  const toggleCompletion = (taskId) => {
-    setTasks(
-      tasks.map((task) =>
-        task.id === taskId ? { ...task, completed: !task.completed } : task
-      )
-    );
-  };
-
-  const editTask = (taskId, newTitle) => {
-    setTasks(
-      tasks.map((task) =>
-        task.id === taskId ? { ...task, title: newTitle } : task
-      )
-    );
-  };
-
+const App = () =>{
+  // const [user, setLoginUser] = useState({});
   return (
-    <div className="container mt-5">
-      <h1 className="text-center mb-4">Task Manager</h1>
-      <div className="mb-3">
-        <input
-          type="text"
-          className="form-control"
-          placeholder="Add a new task..."
-          value={newTask}
-          onChange={(e) => setNewTask(e.target.value)}
-        />
-        <button
-          className="btn btn-primary mt-2"
-          onClick={addTask}
-          style={{ animation: 'fadeIn 0.5s' }}
-        >
-          Add Task
-        </button>
-      </div>
-      <TaskList
-        tasks={tasks}
-        deleteTask={deleteTask}
-        toggleCompletion={toggleCompletion}
-        editTask={editTask}
-      />
+    <div className="App">
+      
+      <Router>
+      <NavBar />
+        <Routes>
+         <Route path='/Register' element={<Register/>}></Route>
+         <Route path='/UserLogin' element={<UserLogin/>}></Route>
+         <Route path='/UserHomepage/:id' element={<UserHomepage/>}></Route>
+         <Route path='/CoAdminHome/:id' element={<CoAdminHome/>}></Route>
+         <Route path='/CoAdminLogin' element={<CoAdminLogin/>}></Route>
+         <Route path='/CoAdminProfile/:id' element={<CoAdminProfile/>}></Route>
+         <Route path='/CoAdminRegister' element={<CoAdminRegister/>}></Route>
+         <Route path='/AdminLogin' element={<AdminLogin/>}></Route>
+         <Route path='/AdminRegister' element={<AdminRegister/>}></Route>
+         <Route path='/AdminPanel' element={<AdminPanel/>}></Route>
+         <Route path="/updateuser/:id" element={<UpdateUser />} />
+         <Route path="/UserProfile/:id" element={<UserProfile/>}></Route>
+         <Route path='/' element={<Home/>}></Route>
+        </Routes>
+      </Router>
     </div>
   );
-};
+}
 
 export default App;
